@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Consumo API</title>
+
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+
+                main {
+                    width: 100vw;
+                    height: 100vh;
+                    background-color: #7fffd4;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                article {
+                    background-color:#f0ffff;
+                    padding: 30px 20px;
+                    border-radius: 10px;
+                    box-shadow: 5px 5px 10px #888;
+                }
+
+                input {
+                    height: 26px;
+                    margin-right: 10px;
+                    padding-left: 10px;
+                }
+
+                #pesquisar {
+                    background-color: #7fffd4cb;
+                    cursor: pointer;
+                    padding: 4px 10px;
+                    border-radius: 5px;
+                    border: 1px solid #000;
+                }
+
+                #pesquisar:hover {
+                    box-shadow: 1px 1px 10px #888;
+                }
+
+                table {
+                    width: 100%;
+                    margin-top: 15px;
+                }
+            </style>
+        </head>
+
+            <body>
+                <main>
+                    <article>
+                        <form>
+                            <input type="number" name="cep" id="cep" placeholder="Informe seu CEP">
+                            <span id="pesquisar">Pesquisar CEP</span>
+                        </form>
+                        
+                        <table>
+                            <tr>
+                                <td>Endereço:</td>
+                                <td id="logradouro"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Bairro:</td>
+                                <td id="bairro"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Cidade:</td>
+                                <td id="localidade"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Estado:</td>
+                                <td id="uf"></td>
+                            </tr>
+                        </table>
+                    </article>
+                </main>
+
+                <script src="./jquery-3.6.4.min.js"></script>
+                <script>
+                    $(document).ready(
+                        () => {
+                            $('#pesquisar').click(
+                                () => {
+                                    const cepInformado = $('#cep').val();
+                                    const urlAPI = "https://viacep.com.br/ws/" + cepInformado + "/json/";
+                                    
+                                    fetch(urlAPI).then(
+                                        (informacoes) => {
+                                            informacoes.json().then(
+                                                (enderecoViaCep) => {
+                                                    $('#logradouro').html(enderecoViaCep.logradouro);
+                                                    $('#bairro').html(enderecoViaCep.bairro);
+                                                    $('#localidade').html(enderecoViaCep.localidade);
+                                                    $('#uf').html(enderecoViaCep.uf);
+                                                }
+                                            );
+                                        }
+                                    );
+                                }
+                            );
+                        }
+                    );
+                </script>
+            </body>
+
+    </html>
