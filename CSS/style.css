@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: #1f1f1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+article {
+    background-color:#f0ffff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #888;
+}
+
+input {
+    height: 26px;
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#pesquisar {
+    background-color: #7fffd4cb;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+#pesquisar:hover {
+    box-shadow: 3px 3px 10px #813434;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+}

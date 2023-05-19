@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+    <html lang="pt-br">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="CSS/style.css">
+            <title>Encontre seu CEP</title>
+        </head>
+
+            <body>
+                <main>
+                    <article>
+
+                        <form>
+                            <input type = "number" name="cep" id="cep" placeholder="Informe seu CEP" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength = "8">
+                            <span id="pesquisar">Pesquisar CEP</span>
+                        </form>
+                        
+                        <table>
+                            <tr>
+                                <td>Endereço:</td>
+                                <td id="logradouro"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Bairro:</td>
+                                <td id="bairro"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Cidade:</td>
+                                <td id="localidade"></td>
+                            </tr>
+
+                            <tr>
+                                <td>Estado:</td>
+                                <td id="uf"></td>
+                            </tr>
+                        </table>
+
+                    </article>
+                </main>
+
+                <script src="JS/jquery-3.6.4.min.js"></script>
+                <script src="JS/script.js"></script>
+            </body>
+
+    </html>
